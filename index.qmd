@@ -1,1 +1,14 @@
 # Introduction
+Moneyball - How to win the Premier League
+
+Background:
+	
+	The Premier League is the most prestigious and highest level of competitive soccer in England.  It is the most followed soccer league in the world, producing the superstars of the sport and strongest teams.  
+ 
+Why you chose this topic:
+
+	We wanted to find a dataset we were both passionate about and interested in.  After extensive searching and exploring of datasets we decided to use the premier league soccer dataset.  We chose this dataset because we both love sports and believe we can find meaningful trends in the data that help determine what makes a winning team.
+
+Questions you are interested in studying: 
+
+	As mentioned above, we want to discover what makes a winning team in the premier league. More concretely, we can research the attributes and statistics that are most highly correlated with winning and losing. For instance, do higher salaries mean a better chance of winning? How much more likely is a team to win based on a winning previous season? Are teams with a strong player in a certain position more likely to win? We will delve into these question and many more regarding 
