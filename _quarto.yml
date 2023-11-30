@@ -6,11 +6,11 @@ execute:
   echo: true
 
 book:
-  title: "YOUR PROJECT TITLE"
+  title: "Moneyball: How to win the Premier League with Data"
   author:
-    - AUTHOR1 (UNI1)
-    - AUTHOR2 (UNI2)
-  repo-url: https://github.com/YOUR_GITHUB_ACCOUNT/REPO_NAME
+    - Tyler Freund (tf2584)
+    - Yash Dange (yad2111)
+  repo-url: https://github.com/yash-dange/Moneyball
   date: today
   page-footer:
     right: |
