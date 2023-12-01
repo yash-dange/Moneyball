@@ -31,10 +31,4 @@ Why you chose this topic:
 
 Questions you are interested in studying: 
 
-	As mentioned above, we want to discover what makes a winning team in the
-	premier league. More concretely, we can research the attributes and statistics
-	that are most highly correlated with winning and losing. For instance, do
-	higher salaries mean a better chance of winning? How much more likely is a
-	team to win based on a winning previous season? Are teams with a strong player
-	in a certain position more likely to win? We delve into these questions and
-	many more regarding how a team can become successful.
+As mentioned above, we want to discover what makes a winning team in the premier league. More concretely, we can research the attributes and statistics that are most highly correlated with winning and losing. For instance, do higher salaries and club valuation mean a better chance of winning? How much more likely is a team to win based on a winning previous season? Are teams with a strong player in a certain position more likely to win? We delve into these questions and	many more regarding how a team can become successful.

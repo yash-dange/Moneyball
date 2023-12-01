@@ -1,14 +1,12 @@
 # Data
 `Data Description: Technical, Research Approach and Missing Value Analysis`
 
+## Description
+
 *2.1 Technical Description*
-=======
 **Data Description**
 
 2.1 Technical Description
-=======
-## Description
->>>>>>> 8310d987a5de7cdf2d569eb2721f8f7fa476d86a
 
 Given the popularity of the sport and its apex league, it is not surprising to see the manifold sources which can be used to book-keep the data of the Premier League and its individual fixtures. Some popular sources are:
 
@@ -21,10 +19,7 @@ o	Sportradar: Sportradar offers APIs with live and historical data for various s
 
 3.	Statistical Websites:
 o	Whoscored: Whoscored provides detailed statistics, including player ratings, team performance, and match data for various football leagues, including the Premier League.
-<<<<<<< HEAD
 
-=======
->>>>>>> 8310d987a5de7cdf2d569eb2721f8f7fa476d86a
 o	Transfermarkt: While primarily known for transfer-related data, Transfermarkt also offers comprehensive statistics, player information, and historical data for the Premier League.
 
 4.	Open Source Datasets:
@@ -32,21 +27,13 @@ o	GitHub Datasets: Some repositories on GitHub host curated football datasets, i
 
 5.	API Platforms:
 o	RapidAPI: Platforms like RapidAPI aggregate multiple APIs, including sports data providers. You can find football-related APIs on RapidAPI that cover the Premier League.
-<<<<<<< HEAD
 
-For the purpose of this project, we have taken into consideration the previous season of the Premier League (Season 2022/23) which concluded in May. This will allow us to perform in -depth analysis of an entire season.
-
-**SOURCES USED:**
-
-**Source 1: Football Referee** (https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats)
-
-=======
 For the purpose of this project, we have taken into consideration the previous season of the Premier League (Season 2022/23) which concluded in May. This will allow us to perform in -depth analysis of an entire season.
 
 *SOURCES USED:*
 
 **Source 1: Football Referee** (https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats)
->>>>>>> 8310d987a5de7cdf2d569eb2721f8f7fa476d86a
+
 Description: The dataset consists detailed records of the recently concluded 22/23 season of the English Premier League. It includes various metrics like possession, goalkeeping, playmaking, passing, etc and provides information from a twofold perspective (squad and v/s the squad). Provides ample opportunities for different observations using all kinds of graphs and plots.
 
 Format: Excel Sheets (.xlsx) and Comma Separated Values (.csv) files.
@@ -61,7 +48,6 @@ Potential Shortcomings of the dataset:
 2. Needs Pre-processing and Cleaning - Data is spread into 23 different sheets (each acting as a dataset on its own)
 3. Limited Size – The dataset consists of only 20 rows in each sheet, representing all 20 teams. This is different from a usual csv file which might consist millions of rows of data.
 
-<<<<<<< HEAD
 *Source 2: Official Website of the Premier League* (https://www.premierleague.com/)
 
 This is the official website of the English Premier League and acts as the official platform for all news, stats and records of the league. We primarily plan to use this as a ‘fact-check’ source to ensure the data represented on the third party source is authentic and not fabricated. Besides, the website also contains information not relevant to the purpose of our assignment. 
@@ -70,18 +56,7 @@ This is the official website of the English Premier League and acts as the offic
 
 **2.2 Research plan**
 
-The research question we’re primarily trying to answer is – _“What makes a Premier League Champion?”_
-
-=======
-**Source 2: Official Website of the Premier League** (https://www.premierleague.com/)
-This is the official website of the English Premier League and acts as the official platform for all news, stats and records of the league. We primarily plan to use this as a ‘fact-check’ source to ensure the data represented on the third party source is authentic and not fabricated. Besides, the website also contains information not relevant to the purpose of our assignment. 
-
-External Sources which might possible aid our research question (Financial Aspects) - https://www.transfermarkt.us/
-
-**2.2 Research plan**
-
 The research question we’re primarily trying to answer is – “What makes a Premier League Champion?”
->>>>>>> 8310d987a5de7cdf2d569eb2721f8f7fa476d86a
 Analyzing a Premier League dataset to understand the key factors that contribute to a team becoming a champion involves exploring various aspects of the game. Here's a detailed approach:
 
 1. Performance Metrics: Goals Scored and Conceded. Explore the relationship between a team's goal-scoring ability and defensive solidity. Champions often have a high goal-scoring rate coupled with a solid defense. Possible Graphs – Line Chart, Bar Chart.
@@ -98,10 +73,6 @@ Clean Sheets and Goals Conceded: Assess the number of clean sheets and goals con
 
 5. Individual Player Performance:
 Key Player Contributions: Analyze individual player statistics such as top goal scorers, assists, key passes, successful tackles, interceptions, etc., to identify the impact of star players on the team's success. Possible Graphs – Bar Chart, Radar Chart.
-<<<<<<< HEAD
-=======
-
->>>>>>> 8310d987a5de7cdf2d569eb2721f8f7fa476d86a
 Additional Data from the same source (FBRef) will be required for individual player analysis*
 
 6. Goalkeeping Performance:
@@ -122,11 +93,8 @@ Plot: Line/Bar Chart
 
 By dissecting and analyzing various facets of the dataset as mentioned above, we can uncover patterns and trends that distinguish championship-winning teams in the Premier League. Integrating multiple metrics and adopting a holistic approach will provide a comprehensive understanding of our research question - What makes a Premier League champion?
 
-<<<<<<< HEAD
-**2.3 Missing Value Analysis**
+## Missing Value Analysis
 
-=======
->>>>>>> 8310d987a5de7cdf2d569eb2721f8f7fa476d86a
 ```{r}
 library(readxl)
 library(ggplot2)
@@ -169,11 +137,7 @@ ggplot(non_null_df, aes(x = Var2, y = Var1, fill = value)) +
   labs(x = "Columns", y = "Rows", title = "Presence of Non-null Values (Green indicates presence)") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
-<<<<<<< HEAD
 Note: Certain Unnamed columns still exist which will be treated in the pre-processing stages. 
-=======
-Note: Certain Unnamed Columns still need pre-processing and will be done in later stages.
->>>>>>> 8310d987a5de7cdf2d569eb2721f8f7fa476d86a
 
 The above plots show that we did not observe any null values at all.  We found 
 a collection of many different datasets all relating to the teams in the premier
