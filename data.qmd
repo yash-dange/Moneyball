@@ -4,9 +4,6 @@
 ## Description
 
 *2.1 Technical Description*
-**Data Description**
-
-2.1 Technical Description
 
 Given the popularity of the sport and its apex league, it is not surprising to see the manifold sources which can be used to book-keep the data of the Premier League and its individual fixtures. Some popular sources are:
 
@@ -53,6 +50,9 @@ Potential Shortcomings of the dataset:
 This is the official website of the English Premier League and acts as the official platform for all news, stats and records of the league. We primarily plan to use this as a ‘fact-check’ source to ensure the data represented on the third party source is authentic and not fabricated. Besides, the website also contains information not relevant to the purpose of our assignment. 
 
 `External Sources which might possible aid our research question (Financial Aspects) - https://www.transfermarkt.us/`
+
+
+## Research Plan
 
 **2.2 Research plan**
 
