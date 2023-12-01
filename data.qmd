@@ -4,3 +4,50 @@
 push check
 
 ## Missing value analysis
+```{r}
+library(readxl)
+library(ggplot2)
+library(tidyr)
+library(reshape2)
+
+# read data and print null counts for each field in data
+file_path <- "EPL (Names).xlsx"
+data <- read_excel(file_path)
+count_null_values <- function(df) {
+  colSums(is.na(df))
+}
+null_counts <- count_null_values(data)
+print(null_counts)
+
+# bar plot of null vs non null counts by field
+non_null_counts <- colSums(!is.na(data))
+plot_data <- data.frame(columns = names(non_null_counts),
+                        counts = non_null_counts,
+                        null_counts_0 = non_null_counts == 0)
+
+plot_data_gathered <- plot_data %>%
+  gather(key = "value_type", value = "count", -columns)
+ggplot(plot_data_gathered, aes(x = columns, y = count, fill = value_type)) +
+  geom_bar(stat = "identity", position = "dodge", alpha = 0.8) +
+  scale_fill_manual(values = c("counts" = "skyblue", "null_counts_0" = "red"), 
+                    name = "Count Type",
+                    labels = c("Non-null", "Null count of 0")) +
+  labs(x = "Columns", y = "Count", title = "Null and Non-null Values in Columns") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# heatmap of non null values
+non_null_matrix <- !is.na(data)
+non_null_df <- melt(non_null_matrix)
+ggplot(non_null_df, aes(x = Var2, y = Var1, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_manual(values = c("TRUE" = "green", "FALSE" = "red", "NA" = "red"), 
+                    name = "Non-null",
+                    na.value = "NA color") +
+  labs(x = "Columns", y = "Rows", title = "Presence of Non-null Values (Green indicates presence)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+The above plots show that we did not observe any null values at all.  We found 
+a collection of many different datasets all relating to the teams in the premier
+league.  Then we were able to join together some of the important attributes in
+the tables.  This joined dataset we created is what we searched for null values
+in, and we found none.
