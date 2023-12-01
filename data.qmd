@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+#Data
 `Data Description: Technical, Research Approach and Missing Value Analysis`
 
 *2.1 Technical Description*
