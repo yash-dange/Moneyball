@@ -102,7 +102,7 @@ library(tidyr)
 library(reshape2)
 
 # read data and print null counts for each field in data
-file_path <- "EPL (Names).xlsx"
+file_path <- "data/EPL (Names).xlsx"
 data <- read_excel(file_path)
 count_null_values <- function(df) {
   colSums(is.na(df))
