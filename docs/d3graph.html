@@ -159,6 +159,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<b>
+<h1>
+“First Line of Defense”
+</h1>
+</b><p><b></b></p>
 <style>
   * {
     font-family: sans-serif;
@@ -167,8 +172,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="plot">
 
 </div>
+<div id="tooltip" style="position: absolute; visibility: hidden; background-color: white; padding: 10px; border: 1px solid #ddd;">
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="scripts/myscript.js"></script>
+<p><b> Comments: </b></p>
+<p>
+Our interactive graph is a pie chart created by d3. To interact with the plot you simply need to hover the mouse over the different chunks of the pie to see what percentage of total goalie saves were from a given group of goalies. The groups were created using the number of wins (ie top 5 are the top 5 goalies with most wins). Our results were actually surprising and quite different from what we expected. We initially thought that the better teams/goalies would have a higher percentage of saves. However, we actually discovered that the best teams have the least percentage of total saves. After thinking about this result more deeply, we realized that this is in fact intuitive. This is because the best teams control the ball more and prevent the other team from even entering a position where they can get a shot at the goal. Thus, it would make sense that the best teams would actually have the fewest number of saves since they have fewer shots coming at their goalies in total. This visualization helps us understand that while having a strong goalie is important, it may be equally important to have defensive players who prevent the opponent from ever even getting a shot at the goalie.
+</p>
 
 
 

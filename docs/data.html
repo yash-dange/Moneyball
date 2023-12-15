@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -142,6 +176,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research Plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing Value Analysis</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/yash-dange/Moneyball/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/yash-dange/Moneyball/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -165,9 +201,135 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p><code>Data Description: Technical, Research Approach and Missing Value Analysis</code></p>
 <section id="description" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
-<p>Hi ## Missing value analysis</p>
+<p><em>2.1 Technical Description</em></p>
+<p>Given the popularity of the sport and its apex league, it is not surprising to see the manifold sources which can be used to book-keep the data of the Premier League and its individual fixtures. Some popular sources are:</p>
+<ol type="1">
+<li><p>Premier League Official Website: The official Premier League website offers statistics, fixtures, results, and historical data. While it might not provide APIs, the website itself is a good reference for up-to-date information.</p></li>
+<li><p>Football Data APIs: o Opta: Opta provides detailed sports data, including football. They offer APIs that cover various football leagues, including the Premier League, delivering statistics, match events, player data, and more.</p></li>
+</ol>
+<p>o Sportradar: Sportradar offers APIs with live and historical data for various sports, including football. Their services cover detailed match data, player statistics, and more for the Premier League.</p>
+<ol start="3" type="1">
+<li>Statistical Websites: o Whoscored: Whoscored provides detailed statistics, including player ratings, team performance, and match data for various football leagues, including the Premier League.</li>
+</ol>
+<p>o Transfermarkt: While primarily known for transfer-related data, Transfermarkt also offers comprehensive statistics, player information, and historical data for the Premier League.</p>
+<ol start="4" type="1">
+<li><p>Open Source Datasets: o GitHub Datasets: Some repositories on GitHub host curated football datasets, including Premier League data. You can find historical match results, player statistics, and more.</p></li>
+<li><p>API Platforms: o RapidAPI: Platforms like RapidAPI aggregate multiple APIs, including sports data providers. You can find football-related APIs on RapidAPI that cover the Premier League.</p></li>
+</ol>
+<p>For the purpose of this project, we have taken into consideration the previous season of the Premier League (Season 2022/23) which concluded in May. This will allow us to perform in -depth analysis of an entire season.</p>
+<p><em>SOURCES USED:</em></p>
+<p><strong>Source 1: Football Referee</strong> (https://fbref.com/en/comps/9/2022-2023/2022-2023-Premier-League-Stats)</p>
+<p>Description: The dataset consists detailed records of the recently concluded 22/23 season of the English Premier League. It includes various metrics like possession, goalkeeping, playmaking, passing, etc and provides information from a twofold perspective (squad and v/s the squad). Provides ample opportunities for different observations using all kinds of graphs and plots.</p>
+<p>Format: Excel Sheets (.xlsx) and Comma Separated Values (.csv) files. Frequency of Updates: Every Match-Week. (Note: Since we have taken into account the last season, there will be no additions or changes to the dataset used. The ‘weekly’ frequency refers to the usual timeline of football matches in the English Premier League held usually held every Saturday &amp; Sunday, with exceptions being International Breaks, Emergencies and off-season breaks.)</p>
+<p>Dimensions: 20 X 15 (Each sheet consists of different number of columns, depending on the aspect of the game it records. 15 is just a rough estimate of how many features may be present in each. The teams, however, stay the same and hence all sheets have 20 rows.)</p>
+<p>Other relevant information: For the uninitiated, certain terms commonly used in Football (or Soccer, in America) might feel like jargon. Hence, one can find the “glossary” section in the source link itself to better understand the meaning &amp; full forms of abbreviations used as column names.</p>
+<p>Potential Shortcomings of the dataset: 1. No categorical variables as such – All features are of numerical datatypes. This is a nature of the sport itself, which demands limited ‘categorical’ input for analysis. 2. Needs Pre-processing and Cleaning - Data is spread into 23 different sheets (each acting as a dataset on its own) 3. Limited Size – The dataset consists of only 20 rows in each sheet, representing all 20 teams. This is different from a usual csv file which might consist millions of rows of data.</p>
+<p><em>Source 2: Official Website of the Premier League</em> (https://www.premierleague.com/)</p>
+<p>This is the official website of the English Premier League and acts as the official platform for all news, stats and records of the league. We primarily plan to use this as a ‘fact-check’ source to ensure the data represented on the third party source is authentic and not fabricated. Besides, the website also contains information not relevant to the purpose of our assignment.</p>
+<p><code>External Sources which might possible aid our research question (Financial Aspects) - https://www.transfermarkt.us/</code></p>
+</section>
+<section id="research-plan" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research Plan</h2>
+<p><strong>2.2 Research plan</strong></p>
+<p>The research question we’re primarily trying to answer is – “What makes a Premier League Champion?” Analyzing a Premier League dataset to understand the key factors that contribute to a team becoming a champion involves exploring various aspects of the game. Here’s a detailed approach:</p>
+<ol type="1">
+<li><p>Performance Metrics: Goals Scored and Conceded. Explore the relationship between a team’s goal-scoring ability and defensive solidity. Champions often have a high goal-scoring rate coupled with a solid defense. Possible Graphs – Line Chart, Bar Chart.</p></li>
+<li><p>Possession and Style of Play: Possession Statistics: Examine possession stats to understand if champions tend to dominate possession or are effective in counter-attacking. Passing Accuracy and Style: Analyze passing accuracy and patterns to determine if champions have a particular style of play (possession-based, direct play, etc.) Possible Graphs – Area Chart, Heatmap.</p></li>
+<li><p>Efficiency and Expected Goals (xG): Expected Goals (xG): Evaluate expected goals statistics to gauge a team’s offensive efficiency. Compare actual goals scored to expected goals to identify teams that overperform or underperform based on expected metrics. Possible Graphs - Scatter Plot, Line Chart.</p></li>
+<li><p>Defensive Strength: Clean Sheets and Goals Conceded: Assess the number of clean sheets and goals conceded by champions. A strong defense is often a crucial factor in winning the title. Possible Graphs - Bar Chart/ Line Chart.</p></li>
+<li><p>Individual Player Performance: Key Player Contributions: Analyze individual player statistics such as top goal scorers, assists, key passes, successful tackles, interceptions, etc., to identify the impact of star players on the team’s success. Possible Graphs – Bar Chart, Radar Chart. Additional Data from the same source (FBRef) will be required for individual player analysis*</p></li>
+<li><p>Goalkeeping Performance: Goalkeeper Stats: Evaluate goalkeeper statistics such as save percentage, clean sheets, saves made, etc., to understand the influence of goalkeeping on the team’s success. Possible Graphs - Bar Chart or Pie Chart. Illustrating goalkeeper statistics like save percentage, clean sheets, saves made, etc., for different goalkeepers.</p></li>
+<li><p>Tackles Won and Defensive Actions: Tackles and Defensive Stats: Assess the number of tackles won, interceptions, blocks, clearances, etc., to understand a team’s defensive work rate and effectiveness.Possible Graphs - Bar Chart or Area Chart: Displaying tackles won, interceptions, blocks, clearances, etc., to showcase defensive actions.</p></li>
+<li><p>Consistency and Form: Home vs.&nbsp;Away Performance: Analyze a team’s performance at home versus away games to understand consistency. Form Across the Season: Check for streaks, runs of consecutive wins, and periods of good form to identify critical phases of the season for champions. Plot: Line Chart/ Area Chart</p></li>
+<li><p>Match Analysis: Results Against Top Teams: Analyze results against direct competitors or top teams to understand the team’s performance in crucial matches. Performance in Critical Fixtures: Evaluate performance in high-pressure matches towards the end of the season. Plot: Line/Bar Chart</p></li>
+</ol>
+<p>By dissecting and analyzing various facets of the dataset as mentioned above, we can uncover patterns and trends that distinguish championship-winning teams in the Premier League. Integrating multiple metrics and adopting a holistic approach will provide a comprehensive understanding of our research question - What makes a Premier League champion?</p>
+</section>
+<section id="missing-value-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing Value Analysis</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'reshape2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:tidyr':
+
+    smiths</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data and print null counts for each field in data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"data/EPL (Names).xlsx"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(file_path)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>count_null_values <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>null_counts <span class="ot">&lt;-</span> <span class="fu">count_null_values</span>(data)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(null_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unnamed: 0_level_0 Unnamed: 1_level_0 Unnamed: 2_level_0 Unnamed: 3_level_0 
+                 0                  0                  0                  0 
+        Pass Types       Pass Types.1       Pass Types.2       Pass Types.3 
+                 0                  0                  0                  0 
+      Pass Types.4       Pass Types.5       Pass Types.6       Pass Types.7 
+                 0                  0                  0                  0 
+      Corner Kicks     Corner Kicks.1     Corner Kicks.2           Outcomes 
+                 0                  0                  0                  0 
+        Outcomes.1         Outcomes.2 
+                 0                  0 </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bar plot of null vs non null counts by field</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>non_null_counts <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(data))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">columns =</span> <span class="fu">names</span>(non_null_counts),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">counts =</span> non_null_counts,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">null_counts_0 =</span> non_null_counts <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plot_data_gathered <span class="ot">&lt;-</span> plot_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(<span class="at">key =</span> <span class="st">"value_type"</span>, <span class="at">value =</span> <span class="st">"count"</span>, <span class="sc">-</span>columns)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data_gathered, <span class="fu">aes</span>(<span class="at">x =</span> columns, <span class="at">y =</span> count, <span class="at">fill =</span> value_type)) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"counts"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>, <span class="st">"null_counts_0"</span> <span class="ot">=</span> <span class="st">"red"</span>), </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">name =</span> <span class="st">"Count Type"</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Non-null"</span>, <span class="st">"Null count of 0"</span>)) <span class="sc">+</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Columns"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">title =</span> <span class="st">"Null and Non-null Values in Columns"</span>) <span class="sc">+</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># heatmap of non null values</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>non_null_matrix <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(data)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>non_null_df <span class="ot">&lt;-</span> <span class="fu">melt</span>(non_null_matrix)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_null_df, <span class="fu">aes</span>(<span class="at">x =</span> Var2, <span class="at">y =</span> Var1, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"NA"</span> <span class="ot">=</span> <span class="st">"red"</span>), </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">name =</span> <span class="st">"Non-null"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">na.value =</span> <span class="st">"NA color"</span>) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Columns"</span>, <span class="at">y =</span> <span class="st">"Rows"</span>, <span class="at">title =</span> <span class="st">"Presence of Non-null Values (Green indicates presence)"</span>) <span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Note: Certain Unnamed columns still exist which will be treated in the pre-processing stages.</p>
+<p>The above plots show that we did not observe any null values at all. We found a collection of many different datasets all relating to the teams in the premier league. Then we were able to join together some of the important attributes in the tables. This joined dataset we created is what we searched for null values in, and we found none.</p>
 
 
 </section>

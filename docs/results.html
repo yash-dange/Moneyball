@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -137,7 +171,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#offense-wins-games-defense-wins-titles-scatter-plot" id="toc-offense-wins-games-defense-wins-titles-scatter-plot" class="nav-link active" data-scroll-target="#offense-wins-games-defense-wins-titles-scatter-plot"><span class="header-section-number">3.1</span> “Offense Wins Games, Defense Wins Titles?” (Scatter Plot)</a></li>
+  <li><a href="#keep-your-composure-boxplot" id="toc-keep-your-composure-boxplot" class="nav-link" data-scroll-target="#keep-your-composure-boxplot"><span class="header-section-number">3.2</span> “Keep your Composure” (Boxplot)</a></li>
+  <li><a href="#sharing-is-caring-ridgeline-plot" id="toc-sharing-is-caring-ridgeline-plot" class="nav-link" data-scroll-target="#sharing-is-caring-ridgeline-plot"><span class="header-section-number">3.3</span> “Sharing is Caring” (Ridgeline Plot)</a></li>
+  <li><a href="#holy-moly-goalie-parallel-coordinates-plot" id="toc-holy-moly-goalie-parallel-coordinates-plot" class="nav-link" data-scroll-target="#holy-moly-goalie-parallel-coordinates-plot"><span class="header-section-number">3.4</span> “Holy Moly Goalie” (Parallel Coordinates Plot)</a></li>
+  <li><a href="#hold-for-the-gold-biplot" id="toc-hold-for-the-gold-biplot" class="nav-link" data-scroll-target="#hold-for-the-gold-biplot"><span class="header-section-number">3.5</span> “Hold for the Gold” (Biplot)</a></li>
+  <li><a href="#thats-a-long-shot-bro.-field-plot" id="toc-thats-a-long-shot-bro.-field-plot" class="nav-link" data-scroll-target="#thats-a-long-shot-bro.-field-plot"><span class="header-section-number">3.6</span> “That’s a Long Shot, Bro.” (Field Plot)</a></li>
+  <li><a href="#good-touch-bad-touch.-stacked-bar-plot" id="toc-good-touch-bad-touch.-stacked-bar-plot" class="nav-link" data-scroll-target="#good-touch-bad-touch.-stacked-bar-plot"><span class="header-section-number">3.7</span> “Good Touch, Bad Touch.” (Stacked Bar Plot)</a></li>
+  <li><a href="#pass-meif-you-can-radial-plot" id="toc-pass-meif-you-can-radial-plot" class="nav-link" data-scroll-target="#pass-meif-you-can-radial-plot"><span class="header-section-number">3.8</span> “Pass Me…If You Can” (Radial Plot)</a></li>
+  <li><a href="#old-is-goldand-grumpy-faceted-line-plot" id="toc-old-is-goldand-grumpy-faceted-line-plot" class="nav-link" data-scroll-target="#old-is-goldand-grumpy-faceted-line-plot"><span class="header-section-number">3.9</span> “Old is Gold…and Grumpy?” (Faceted Line Plot)</a></li>
+  <li><a href="#great-expectations-horizontal-bar-plot" id="toc-great-expectations-horizontal-bar-plot" class="nav-link" data-scroll-target="#great-expectations-horizontal-bar-plot"><span class="header-section-number">3.10</span> “Great Expectations” (Horizontal Bar Plot)</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/yash-dange/Moneyball/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/yash-dange/Moneyball/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -159,8 +208,572 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="offense-wins-games-defense-wins-titles-scatter-plot" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="offense-wins-games-defense-wins-titles-scatter-plot"><span class="header-section-number">3.1</span> “Offense Wins Games, Defense Wins Titles?” (Scatter Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>reg_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data/regular.csv'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># compute r^2 for goals scored and conceded vs. total points</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cor_gf <span class="ot">&lt;-</span> <span class="fu">cor</span>(reg_data<span class="sc">$</span>GF, reg_data<span class="sc">$</span>Pts)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>cor_ga <span class="ot">&lt;-</span> <span class="fu">cor</span>(reg_data<span class="sc">$</span>GA, reg_data<span class="sc">$</span>Pts)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual 1: create scatter plot</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>reg_data, <span class="fu">aes</span>(<span class="at">x=</span>GF, <span class="at">y=</span>Pts, <span class="at">color=</span><span class="st">"Defense"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data=</span>reg_data, <span class="fu">aes</span>(<span class="at">x=</span>GF, <span class="at">y=</span>Pts, <span class="at">color=</span><span class="st">"Defense"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>reg_data, <span class="fu">aes</span>(<span class="at">x=</span>GA, <span class="at">y=</span>Pts, <span class="at">color=</span><span class="st">"Offense"</span>), <span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data=</span>reg_data, <span class="fu">aes</span>(<span class="at">x=</span>GA, <span class="at">y=</span>Pts, <span class="at">color=</span><span class="st">"Offense"</span>), <span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Comparison of Offense vs Defense and League Points"</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Goals Scored / Conceded"</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Total League Points"</span>) <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"Offense"</span><span class="ot">=</span><span class="st">"blue"</span>, <span class="st">"Defense"</span><span class="ot">=</span><span class="st">"orange"</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name=</span><span class="st">"Team Aspect"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Offense: Goals Scored"</span>, <span class="st">"Defense: Goals Conceded"</span>)) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size=</span><span class="dv">20</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="cn">Inf</span>, <span class="at">y=</span><span class="dv">0</span>, <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">label=</span><span class="fu">paste</span>(<span class="st">"Offense r^2:"</span>, <span class="fu">round</span>(cor_gf, <span class="dv">3</span>)),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">color=</span><span class="st">"orange"</span>, <span class="at">size=</span><span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="cn">Inf</span>, <span class="at">y=</span><span class="dv">2</span>, <span class="at">hjust=</span><span class="dv">1</span>, <span class="at">vjust=</span><span class="sc">-</span><span class="fl">1.5</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>           <span class="at">label=</span><span class="fu">paste</span>(<span class="st">"Defense r^2:"</span>, <span class="fu">round</span>(cor_ga, <span class="dv">3</span>)),</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>           <span class="at">color=</span><span class="st">"blue"</span>, <span class="at">size=</span><span class="dv">4</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># show plot</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'
+`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>Points are a measure of how well a team did during the season (3 points for a win, 1 point for a draw, and 0 points for a loss). We decided to explore the relationship between points and goals scored (by a squad and against a squad). Each squad has two dots on the plot; a red dot indicating goals scored (offense) and a blue dot indicating goals conceded (defense). Both are certainly correlated with better/worse league performance (points), but we do observe a stronger correlation of points and goals scored; suggesting that offense could be more important for success in the league!</p>
+</section>
+<section id="keep-your-composure-boxplot" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="keep-your-composure-boxplot"><span class="header-section-number">3.2</span> “Keep your Composure” (Boxplot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load more data and fix format of it</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>std_stats_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data/Squad Standard Stats.csv'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(std_stats_data) <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(std_stats_data[<span class="dv">1</span>, ]))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>std_stats_data <span class="ot">&lt;-</span> std_stats_data[<span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>std_stats_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Squad =</span> std_stats_data<span class="sc">$</span>Squad, <span class="at">CrdY =</span> std_stats_data<span class="sc">$</span>CrdY)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># join to get the total points in our new table</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df2_pts <span class="ot">&lt;-</span> <span class="fu">select</span>(reg_data, Squad, Pts)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>joined_df <span class="ot">&lt;-</span> <span class="fu">left_join</span>(std_stats_data, df2_pts, <span class="at">by =</span> <span class="st">"Squad"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>joined_df_grouped <span class="ot">&lt;-</span> joined_df <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Pts)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Group =</span> <span class="fu">cut</span>(<span class="fu">row_number</span>(),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">21</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">'Top 5 Teams'</span>, <span class="st">'6th-10th Teams'</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                              <span class="st">'11th-15th Teams'</span>, <span class="st">'Bottom 5 Teams'</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">include.lowest=</span><span class="cn">TRUE</span>))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>joined_df_grouped<span class="sc">$</span>CrdY <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(joined_df_grouped<span class="sc">$</span>CrdY))</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual 2: create the box plot</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(CrdY <span class="sc">~</span> Group, <span class="at">data =</span> joined_df_grouped,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Boxplot of Yellow Cards by Team Group</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="st">                (ranked by league points)"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Team Group (ranked by league points)"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Number of Yellow Cards"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"#FFDB58"</span>, <span class="st">"#FFD700"</span>, <span class="st">"yellow"</span>, <span class="st">"#FDFD96"</span>),</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">las =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>A yellow card is a penalty given to a team by referees when a player breaks the rules in some way. This box plot shows the distribution of the number of yellow cards, by team groups (ranked by total league points). We split the 20 total teams into the top 5 best teams, 2nd 5 best, 3rd 5 best, and worst 5 teams. Then we see how they compare based on the number of yellow cards. We can see that there is a clear relationship between fewer yellow card penalties and better league performance. This suggests that maybe keeping it cool and staying composed can actually help a team succeed.</p>
+</section>
+<section id="sharing-is-caring-ridgeline-plot" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sharing-is-caring-ridgeline-plot"><span class="header-section-number">3.3</span> “Sharing is Caring” (Ridgeline Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reload and process data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>std_stats_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data/Squad Standard Stats.csv'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(std_stats_data) <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(std_stats_data[<span class="dv">1</span>, ]))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>std_stats_data <span class="ot">&lt;-</span> std_stats_data[<span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>std_stats_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Squad =</span> std_stats_data<span class="sc">$</span>Squad,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">PrgP =</span> std_stats_data<span class="sc">$</span>PrgP, <span class="at">Gls =</span> std_stats_data<span class="sc">$</span>Gls)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>std_stats_data<span class="sc">$</span>Gls <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(std_stats_data<span class="sc">$</span>Gls))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>std_stats_data<span class="sc">$</span>PrgP <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(std_stats_data<span class="sc">$</span>PrgP))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df_grouped <span class="ot">&lt;-</span> std_stats_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Gls)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Group =</span> <span class="fu">cut</span>(<span class="fu">row_number</span>(),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">21</span>),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">'Top 5 Teams'</span>, <span class="st">'6th-10th Teams'</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                              <span class="st">'11th-15th Teams'</span>, <span class="st">'Bottom 5 Teams'</span>),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                     <span class="at">include.lowest=</span><span class="cn">TRUE</span>))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual 3: ridgeline plot</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_grouped, <span class="fu">aes</span>(<span class="at">x =</span> PrgP, <span class="at">y =</span> Group)) <span class="sc">+</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Group), <span class="at">scale =</span> <span class="dv">3</span>, <span class="at">rel_min_height =</span> <span class="fl">0.01</span>) <span class="sc">+</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ridgeline Plot of Progressive Passes by Team Group</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="st">                (ranked by goals scored)"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Progressive Passes (PrgP)"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Team Group (ranked by goals scored)"</span>) <span class="sc">+</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ridges</span>() <span class="sc">+</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the plot</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 100</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>Do teams who pass the ball more often score more goals? To answer this we explored the relationship between total goals scored and the number of progressive passes throughout the season. We ranked the teams by number of goals scored and then grouped them into top 5, 5th-10th, 11th-15th, and bottom 5 teams. Then we plotted the density curve of the number of passes for each group/subset. We found that there is clearly a correlation between more passes/ball movement and more goals scored. While players may want the attention of scoring a goal themselves, it may be in the best interest of the team to pass the ball and share the spotlight with one another.</p>
+</section>
+<section id="holy-moly-goalie-parallel-coordinates-plot" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="holy-moly-goalie-parallel-coordinates-plot"><span class="header-section-number">3.4</span> “Holy Moly Goalie” (Parallel Coordinates Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>gk_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data/Squad GK Stats.csv'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gk_data) <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(gk_data[<span class="dv">1</span>, ]))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>gk_data <span class="ot">&lt;-</span> gk_data[<span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># rename columns</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>current_names <span class="ot">&lt;-</span> <span class="fu">names</span>(gk_data)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>current_names[<span class="fu">length</span>(current_names)] <span class="ot">&lt;-</span> <span class="st">"pk_save_percent"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gk_data) <span class="ot">&lt;-</span> current_names</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>gk_data <span class="ot">&lt;-</span> gk_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">save_percent =</span> <span class="st">`</span><span class="at">Save%</span><span class="st">`</span>, </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">cs_percent =</span> <span class="st">`</span><span class="at">CS%</span><span class="st">`</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># check column data types</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>gk_data<span class="sc">$</span>save_percent <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(gk_data<span class="sc">$</span>save_percent))</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>gk_data<span class="sc">$</span>pk_save_percent <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(gk_data<span class="sc">$</span>pk_save_percent))</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>gk_data<span class="sc">$</span>cs_percent <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(gk_data<span class="sc">$</span>cs_percent))</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>gk_data<span class="sc">$</span>W <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(gk_data<span class="sc">$</span>W))</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>gk_data<span class="sc">$</span>win_percent <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> (gk_data<span class="sc">$</span>W <span class="sc">/</span> <span class="dv">38</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>gk_data<span class="sc">$</span>Squad <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(gk_data<span class="sc">$</span>Squad)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># add goalie groups</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>gk_data <span class="ot">&lt;-</span> gk_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Win_Group =</span> <span class="fu">ntile</span>(win_percent, <span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Win_Group =</span> <span class="fu">factor</span>(Win_Group, </span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>                            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Bottom 5 Goalies"</span>, <span class="st">"11th–15th Goalies"</span>, <span class="st">"6th–10th Goalies"</span>, <span class="st">"Top 5 Goalies"</span>)))</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot table longer</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> gk_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Squad, Win_Group, win_percent, save_percent, cs_percent, pk_save_percent) <span class="sc">%&gt;%</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Squad, Win_Group), <span class="at">names_to =</span> <span class="st">"Metric"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual 4: paralell coordinates plot</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(long_data, <span class="fu">aes</span>(<span class="at">x =</span> Metric, <span class="at">y =</span> Value, <span class="at">group =</span> Squad, <span class="at">color =</span> Win_Group)) <span class="sc">+</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Parallel Coordinates Plot for Various Goalkeeper Metrics"</span>,</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Goalie Metric"</span>,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Percentage (%)"</span>) <span class="sc">+</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>Goalies play a pivotal role in a team’s success, so we decided to explore how certain goalie statistics were related to winning. Specifically, we explored clean sheet percentage (cs_percent) defined as the % of games the goalie allowed zero goals by the opponent, save percentage (save_percent) defined as the percentage of shots that were blocked by the goalie, and penalty kick save percentage (pk_save_percent) defined as the percentage of penalty kicks that were blocked by the goalie. We grouped the goalies into 4 groups ranked by their win percentage (i.e.&nbsp;games won divided by total games in the season) and used these groups to color code the lines in our plot. We see that the save_percent was not strongly correlated with goalies that win a lot; however, our other two metrics pk_save_percent and cs_percent are both highest for goalies that had high winning percentage and lowest for goalies that lost many matches. Thus, this displays the key role goalies play in a team’s success.</p>
+</section>
+<section id="hold-for-the-gold-biplot" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="hold-for-the-gold-biplot"><span class="header-section-number">3.5</span> “Hold for the Gold” (Biplot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load possession data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>poss_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data/Squad Possession.csv'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(poss_data) <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">unlist</span>(poss_data[<span class="dv">1</span>, ]))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>poss_data <span class="ot">&lt;-</span> poss_data[<span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>poss_data<span class="sc">$</span>Carries <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(poss_data<span class="sc">$</span>Carries))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>poss_data<span class="sc">$</span>TotDist <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(poss_data<span class="sc">$</span>TotDist))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>poss_data<span class="sc">$</span>PrgDist <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(poss_data<span class="sc">$</span>PrgDist))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>poss_data<span class="sc">$</span>PrgC <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(poss_data<span class="sc">$</span>PrgC))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>df2_pts <span class="ot">&lt;-</span> <span class="fu">select</span>(reg_data, Squad, Pts)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>joined_df <span class="ot">&lt;-</span> <span class="fu">left_join</span>(poss_data, df2_pts, <span class="at">by =</span> <span class="st">"Squad"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>joined_df <span class="ot">&lt;-</span> joined_df <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Team_Result =</span> <span class="fu">ifelse</span>(Pts <span class="sc">&gt;</span> <span class="fu">median</span>(Pts), <span class="st">"Winning"</span>, <span class="st">"Losing"</span>))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Run PCA on the selected metrics</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>selected_metrics <span class="ot">&lt;-</span> joined_df <span class="sc">%&gt;%</span> <span class="fu">select</span>(Carries, TotDist, PrgDist, PrgC)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>pca_result <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(selected_metrics, <span class="at">scale. =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataframe for the PCA scores with winning/losing team info</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>scores_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(pca_result<span class="sc">$</span>x, <span class="at">Team_Result =</span> joined_df<span class="sc">$</span>Team_Result)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual 5: biplot</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">autoplot</span>(pca_result, </span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> scores_df, </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">'Team_Result'</span>, </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">loadings =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>              <span class="at">loadings.label =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>              <span class="at">loadings.label.size =</span> <span class="dv">3</span>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Ball Possession of Winning Teams vs. Losing Teams"</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>Maintaining control/possession of the ball is an important element in being a successful soccer team. In this plot we explore the relationship between winning games and various possession metrics including: Total distance (total distance traveled with ball), progressive distance (total forward distance traveled with ball), total carries (number of times a player controls the ball), and progressive carries (number of times a player controls the ball and moves forward). We see from our biplot that all of these metrics are associated with more winning teams than losing teams, proving that indeed maintaining possession and holding the ball in control help teams reach success.</p>
+</section>
+<section id="thats-a-long-shot-bro.-field-plot" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="thats-a-long-shot-bro.-field-plot"><span class="header-section-number">3.6</span> “That’s a Long Shot, Bro.” (Field Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_opshot <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Opponent Shooting Stats.csv"</span>,<span class="at">skip=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 20 Columns: 20
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (1): Squad
+dbl (19): # Pl, 90s, Gls, Sh, SoT, SoT%, Sh/90, SoT/90, G/Sh, G/SoT, Dist, F...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>avg_distances <span class="ot">&lt;-</span> df_opshot<span class="sc">$</span>Dist  </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>generate_shot_coordinates <span class="ot">&lt;-</span> <span class="cf">function</span>(avg_distances, <span class="at">num_samples =</span> <span class="dv">20</span>) {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  angle <span class="ot">&lt;-</span> (<span class="fu">runif</span>(num_samples, <span class="dv">0</span>, <span class="dv">2</span> <span class="sc">*</span> pi)) </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  distance <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">runif</span>(num_samples, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">*</span> avg_distances </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">-</span> distance <span class="sc">*</span> <span class="fu">abs</span>(<span class="fu">cos</span>(angle))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">50</span> <span class="sc">+</span> distance <span class="sc">*</span> <span class="fu">sin</span>(angle)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y))</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>coordinates <span class="ot">&lt;-</span> <span class="fu">generate_shot_coordinates</span>(avg_distances, <span class="at">num_samples =</span> <span class="dv">20</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>coordinates<span class="sc">$</span>Squad <span class="ot">&lt;-</span> df_opshot<span class="sc">$</span>Squad</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#half pitch  </span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate_pitch</span>(<span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill   =</span> <span class="st">"springgreen4"</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">limits =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>coordinates<span class="sc">$</span>x,<span class="at">y=</span>coordinates<span class="sc">$</span>y,<span class="at">color =</span> df_opshot<span class="sc">$</span><span class="st">`</span><span class="at">SoT%</span><span class="st">`</span>, <span class="at">text =</span> <span class="fu">paste0</span>(<span class="st">"Squad: "</span>, coordinates<span class="sc">$</span>Squad,</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                                                                                 <span class="st">"</span><span class="sc">\n</span><span class="st">Goals per SoT: "</span>, df_opshot<span class="sc">$</span><span class="st">`</span><span class="at">G/SoT</span><span class="st">`</span>),<span class="at">size=</span>df_opshot<span class="sc">$</span><span class="st">`</span><span class="at">G/SoT</span><span class="st">`</span>), <span class="at">shape =</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">name =</span> <span class="st">"% SoT"</span>) <span class="sc">+</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_pitch</span>() <span class="sc">+</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"brown"</span>)) <span class="sc">+</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">52</span>, <span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>() <span class="sc">+</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Thats a long shot, bro</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Shots on Target &amp; Average Distance from Goal"</span>,</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"SoT"</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>The Visualisation was drawn using the following steps: 1. Using the ggsoccer library, we drew one half of pitch (since this was the area of interest). 2. In the ‘Opponent Shooting Stats’ sheet of the data, there was a column for the average shot distance for all shots taken against all teams. 3. Keeping the value of this distance the same, we generated random (x,y) coordinates so that they could be plotted on the pitch with the centre of the goal kept at the centre. 4. ‘Color’ attribute was added to the ‘SoT’ (Shots on Target) variable indicating shot accuracy. On a similar note, the size variable was attributed to the G/SoT variable.</p>
+<p>Graph Components:  Pitch Visualization: Half-pitch representation focusing on the area of interest, depicting the goal's center.  'X' Marks on the Pitch: Represent shot locations against different teams.  Color Attribute (Red Tones): Indicates shot accuracy (%SoT) against teams, brighter red for higher accuracy.  Size of 'X' Marks: Represents Goals per Shot on Target (G/SoT) against teams. Larger 'X' marks indicate a higher number of goals per shot on target. Inferences:</p>
+<ol type="1">
+<li>Distance vs.&nbsp;Shot Accuracy: There isn't a consistent negative correlation between shot distance and the percentage of shots on target. For example, teams facing Liverpool took shots from a considerable distance, yet the %SoT remains relatively high.</li>
+<li>Shots on Target vs.&nbsp;Actual Goals: Merely having shots on target doesn't guarantee scoring. This is evident from the smaller 'X' mark size against Liverpool, suggesting lower conversion rates of shots into actual goals.</li>
+<li>Defense Impact: Teams facing opponents who take shots from a distance indicate a strong defense strategy. These opponents are forced into taking distant shots, implying the defense doesn't allow close-range opportunities.</li>
+</ol>
+<p>Key Insights:  Defensive Strategy: A robust defense that prevents opponents from getting close to the goal might result in shots taken from a distance. While this doesn't necessarily lead to off-target shots, it does increase the chances of easier saves for an experienced goalkeeper.  Shot Conversion Complexity: A high percentage of shots on target doesn't guarantee higher goal conversion. Quality shot placement and finishing skill are crucial for turning shots on target into actual goals.  Balance Needed: Balancing defensive resilience to deter close-range shots with effective attack strategies to improve shot quality and conversion rates is vital for team success.</p>
+<p>Conclusion: The analysis suggests that while keeping opponents at a distance from the goal may result in distant shots, it doesn't guarantee lower shot accuracy. The focus should be on maintaining a strong defense to limit close-range opportunities while improving offensive strategies for higher-quality shots and better conversion rates. Achieving this balance is critical for a team's performance and success.</p>
+</section>
+<section id="good-touch-bad-touch.-stacked-bar-plot" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="good-touch-bad-touch.-stacked-bar-plot"><span class="header-section-number">3.7</span> “Good Touch, Bad Touch.” (Stacked Bar Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a soccer pitch</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pitch <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate_pitch</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_pitch</span>() <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>df_pos <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/EPL (Names).xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Squad Possession"</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>df_oppos <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/EPL (Names).xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Opponent Possession"</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">'Squad'</span>,<span class="st">'Opponent'</span>),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">team =</span> <span class="fu">c</span>(<span class="fu">rbind</span>(df_pos<span class="sc">$</span>Squad, df_oppos<span class="sc">$</span>Squad)),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">def_third =</span> <span class="fu">c</span>(<span class="fu">rbind</span>(df_pos<span class="sc">$</span><span class="st">`</span><span class="at">Def 3rd</span><span class="st">`</span>, df_oppos<span class="sc">$</span><span class="st">`</span><span class="at">Def 3rd</span><span class="st">`</span>)),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">mid_third =</span> <span class="fu">c</span>(<span class="fu">rbind</span>(df_pos<span class="sc">$</span><span class="st">`</span><span class="at">Mid 3rd</span><span class="st">`</span>, df_oppos<span class="sc">$</span><span class="st">`</span><span class="at">Mid 3rd</span><span class="st">`</span>)),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">att_third =</span> <span class="fu">c</span>(<span class="fu">rbind</span>(df_pos<span class="sc">$</span><span class="st">`</span><span class="at">Att 3rd</span><span class="st">`</span>, df_oppos<span class="sc">$</span><span class="st">`</span><span class="at">Att 3rd</span><span class="st">`</span>))</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate percentages for stacked bar</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(values), <span class="at">by =</span> <span class="dv">2</span>)) {</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">$</span>def_Percentage[i] <span class="ot">&lt;-</span> (values<span class="sc">$</span>def_third[i] <span class="sc">/</span> (values<span class="sc">$</span>def_third[i] <span class="sc">+</span> values<span class="sc">$</span>def_third[i <span class="sc">+</span> <span class="dv">1</span>])) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">$</span>def_Percentage[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> (values<span class="sc">$</span>def_third[i <span class="sc">+</span> <span class="dv">1</span>] <span class="sc">/</span> (values<span class="sc">$</span>def_third[i] <span class="sc">+</span> values<span class="sc">$</span>def_third[i <span class="sc">+</span> <span class="dv">1</span>])) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">$</span>mid_Percentage[i] <span class="ot">&lt;-</span> (values<span class="sc">$</span>mid_third[i] <span class="sc">/</span> (values<span class="sc">$</span>mid_third[i] <span class="sc">+</span> values<span class="sc">$</span>mid_third[i <span class="sc">+</span> <span class="dv">1</span>])) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">$</span>mid_Percentage[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> (values<span class="sc">$</span>mid_third[i <span class="sc">+</span> <span class="dv">1</span>] <span class="sc">/</span> (values<span class="sc">$</span>mid_third[i] <span class="sc">+</span> values<span class="sc">$</span>mid_third[i <span class="sc">+</span> <span class="dv">1</span>])) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">$</span>att_Percentage[i] <span class="ot">&lt;-</span> (values<span class="sc">$</span>att_third[i] <span class="sc">/</span> (values<span class="sc">$</span>att_third[i] <span class="sc">+</span> values<span class="sc">$</span>att_third[i <span class="sc">+</span> <span class="dv">1</span>])) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  values<span class="sc">$</span>att_Percentage[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> (values<span class="sc">$</span>att_third[i <span class="sc">+</span> <span class="dv">1</span>] <span class="sc">/</span> (values<span class="sc">$</span>att_third[i] <span class="sc">+</span> values<span class="sc">$</span>att_third[i <span class="sc">+</span> <span class="dv">1</span>])) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="co">#Combined Plot for 20 Teams</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>plots_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>j<span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">nrow</span>(values), <span class="at">by =</span> <span class="dv">2</span>)) {</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  start_row <span class="ot">&lt;-</span> i</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>  end_row <span class="ot">&lt;-</span> i<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Subset the data for each graph</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>  subset_data <span class="ot">&lt;-</span> values[start_row<span class="sc">:</span>end_row, ]</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> pitch <span class="sc">+</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">#lower third</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">data =</span> subset_data, <span class="fu">aes</span>(<span class="at">y =</span> def_Percentage, <span class="at">x =</span> <span class="fl">16.5</span>, <span class="at">fill =</span> category), </span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">width =</span> <span class="dv">33</span>) <span class="sc">+</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">16.5</span>, <span class="at">y =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">label =</span> <span class="st">"Lower Third"</span>), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    <span class="co">#mid-third</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">data =</span> subset_data, <span class="fu">aes</span>(<span class="at">y =</span> mid_Percentage, <span class="at">x =</span> <span class="dv">50</span>, <span class="at">fill =</span> category), </span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">width =</span> <span class="dv">34</span>) <span class="sc">+</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">label =</span> <span class="st">"Middle Third"</span>), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>    <span class="co">#attacking-third</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">data =</span> subset_data, <span class="fu">aes</span>(<span class="at">y =</span> att_Percentage, <span class="at">x =</span> <span class="fl">83.5</span>, <span class="at">fill =</span> category), </span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">width =</span> <span class="dv">33</span>) <span class="sc">+</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">83.5</span>, <span class="at">y =</span> <span class="sc">-</span><span class="dv">5</span>, <span class="at">label =</span> <span class="st">"Attacking Third"</span>), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Squad"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"Opponent"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.30</span>, <span class="st">"cm"</span>))<span class="sc">+</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">33</span>, <span class="at">linetype =</span> <span class="st">"solid"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">67</span>, <span class="at">linetype =</span> <span class="st">"solid"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="fu">paste</span>(subset_data<span class="sc">$</span>team[<span class="dv">1</span>]))</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>  plots_list[[j]] <span class="ot">&lt;-</span> plot</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ggsave(filename = paste0("graph_", i, ".png"))</span></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>  j<span class="ot">&lt;-</span> j<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(<span class="at">grobs =</span> plots_list, <span class="at">ncol =</span> <span class="dv">5</span>, <span class="at">widths =</span> <span class="fu">rep</span>(<span class="dv">5</span>, <span class="dv">5</span>), <span class="at">heights =</span> <span class="fu">rep</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>Visualization Components:  Divided Thirds: Three distinct sections representing different thirds of the pitch—defensive, midfield, and attacking.  Color Gradient (Blue Tones): Indicates team control and dominance in each third of the pitch. More blue signifies better control over that area.  Comparison between Squad and Opponent Touches: The comparison between a team's touches and those of its opponents in each third. Inferences:</p>
+<ol type="1">
+<li>Team's Control and Playing Style: The dominance of blue hues in each third signifies the team's control over specific areas. More touches in the attacking half suggest an aggressive playing style, while conceding touches in the defensive half implies a more conservative approach.</li>
+<li>Observations: o Balanced Touches: Initially, there appears to be a balance between a team's and its opponent's touches in each third, with no clear trends. o Domination by Select Teams: Manchester City, Arsenal, Chelsea, and Brighton showcase dominance across the entire pitch, indicating their slow and intricate, possession-based style. o Poor Ball Retention: Teams like Nottingham Forest, West Ham, and Bournemouth show inadequate ball retention across all thirds, signifying a lack of control over the ball. o Liverpool's Contrasting Pattern: Liverpool stands out with opponents having more touches in their defense, yet they dominate the middle and attacking thirds. This may be attributed to their high-press strategy and direct approach to scoring.</li>
+<li>Correlation with Results: o Effectiveness of Ball Retention: More blue hues generally correlate with better results. Teams like Everton, West Ham, and Wolves with lower touch values finished in the bottom half. o Goals vs.&nbsp;Possession: Notably, possessing more doesn't necessarily result in more goals. Chelsea, despite showing dominance, finished lower in the league, emphasizing Jose Mourinho's quote: "They can take the ball home. I’ll take the three points."</li>
+</ol>
+<p>Conclusion:  Control and Strategy: The distribution of touches across different thirds reflects a team's playing style - whether aggressive or conservative.  Performance vs.&nbsp;Possession: While possession is crucial, its correlation with positive outcomes varies. Effective ball retention in critical thirds contributes to success, but goals and results don't always align with possession dominance.  Varied Approaches: Different teams showcase distinct strategies, emphasizing the importance of balance between possession, defensive stability, and converting opportunities into goals for achieving favorable outcomes.</p>
+</section>
+<section id="pass-meif-you-can-radial-plot" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="pass-meif-you-can-radial-plot"><span class="header-section-number">3.8</span> “Pass Me…If You Can” (Radial Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_pass <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/EPL (Names).xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Squad Passing Stats"</span>, <span class="at">skip=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `Cmp` -&gt; `Cmp...4`
+• `Att` -&gt; `Att...5`
+• `Cmp%` -&gt; `Cmp%...6`
+• `Cmp` -&gt; `Cmp...9`
+• `Att` -&gt; `Att...10`
+• `Cmp%` -&gt; `Cmp%...11`
+• `Cmp` -&gt; `Cmp...12`
+• `Att` -&gt; `Att...13`
+• `Cmp%` -&gt; `Cmp%...14`
+• `Cmp` -&gt; `Cmp...15`
+• `Att` -&gt; `Att...16`
+• `Cmp%` -&gt; `Cmp%...17`</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#actual viz3</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>teams <span class="ot">&lt;-</span> df_pass<span class="sc">$</span>Squad</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>short_attempts <span class="ot">&lt;-</span> df_pass<span class="sc">$</span>Att...<span class="dv">10</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>short_completed <span class="ot">&lt;-</span> df_pass<span class="sc">$</span>Cmp...<span class="dv">9</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>medium_attempts <span class="ot">&lt;-</span> df_pass<span class="sc">$</span>Att...<span class="dv">13</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>medium_completed <span class="ot">&lt;-</span> df_pass<span class="sc">$</span>Cmp...<span class="dv">12</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>long_attempts <span class="ot">&lt;-</span> df_pass<span class="sc">$</span>Att...<span class="dv">16</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>long_completed <span class="ot">&lt;-</span> df_pass<span class="sc">$</span>Cmp...<span class="dv">15</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Create new dataframe</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  teams,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  short_attempts,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  short_completed,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  medium_attempts,</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  medium_completed,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  long_attempts,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  long_completed</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Melt the data to long format</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(data, <span class="at">id.vars =</span> <span class="st">"teams"</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Create radar chart</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> value, <span class="at">color =</span> variable, <span class="at">group =</span> teams)) <span class="sc">+</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">size =</span> <span class="fl">1.2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"yellow"</span>) <span class="sc">+</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>() <span class="sc">+</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"red"</span>,<span class="st">'orange'</span>,<span class="st">'purple'</span>,<span class="st">'black'</span>)) <span class="sc">+</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pass Accuracy: Attempted and Completed"</span>,</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"short_attempts"</span> <span class="ot">=</span> <span class="st">"Short Attempts"</span>,</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"short_completed"</span> <span class="ot">=</span> <span class="st">"Short Completed"</span>,</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"medium_attempts"</span> <span class="ot">=</span> <span class="st">"Medium Attempts"</span>,</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"medium_completed"</span> <span class="ot">=</span> <span class="st">"Medium Completed"</span>,</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"long_attempts"</span> <span class="ot">=</span> <span class="st">"Long Attempts"</span>,</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"long_completed"</span> <span class="ot">=</span> <span class="st">"Long Completed"</span>))<span class="sc">+</span></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>),</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),  <span class="co"># Adjust label size for x-axis</span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>The graph illustrates the distribution of different pass types - short, medium, and long - along with the conversion rate or success in completing these passes. The definitions categorize short passes as those below 15 yards, medium passes between 15-30 yards, and long passes exceeding 30 yards. 1. Short Passes: These passes, indicated by the minimal inward movement on the graph, show a high rate of successful completion. Teams seem proficient in short passing, as there is minimal deviation from attempts to successful completions. 2. Medium Passes: The transition from short to medium attempts is evident, showcasing that some teams opt for more short passes than completing medium ones. However, the graph demonstrates a relatively smooth transition from attempts to successful completions in the medium range, indicating a reasonable success rate. 3. Long Passes: There is a substantial drop in both the number of attempts and successful completions for long passes. This decline could imply the difficulty associated with executing long passes successfully. Long passes, often crosses or through balls, demand high precision and are susceptible to interceptions, which might explain the reduced success rate. While long passes can offer direct goal- scoring opportunities, they tend to be riskier and less successful, especially against stronger opposition. Overall, the graph portrays that while short and medium passes are executed with relative success, there's a significant challenge associated with converting long passes due to their precision demands and vulnerability to interceptions. Teams might find it challenging to execute these longer passes effectively, contributing to a lower success rate in this pass category.</p>
+</section>
+<section id="old-is-goldand-grumpy-faceted-line-plot" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="old-is-goldand-grumpy-faceted-line-plot"><span class="header-section-number">3.9</span> “Old is Gold…and Grumpy?” (Faceted Line Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_stan <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/EPL (Names).xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Squad Standard Stats"</span>, <span class="at">skip=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `Gls` -&gt; `Gls...9`
+• `Ast` -&gt; `Ast...10`
+• `G+A` -&gt; `G+A...11`
+• `G-PK` -&gt; `G-PK...12`
+• `xG` -&gt; `xG...17`
+• `npxG` -&gt; `npxG...18`
+• `xAG` -&gt; `xAG...19`
+• `npxG+xAG` -&gt; `npxG+xAG...20`
+• `Gls` -&gt; `Gls...23`
+• `Ast` -&gt; `Ast...24`
+• `G+A` -&gt; `G+A...25`
+• `G-PK` -&gt; `G-PK...26`
+• `xG` -&gt; `xG...28`
+• `xAG` -&gt; `xAG...29`
+• `npxG` -&gt; `npxG...31`
+• `npxG+xAG` -&gt; `npxG+xAG...32`</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_reg <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/EPL (Names).xlsx"</span>, <span class="at">sheet =</span> <span class="st">"regular"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_stan<span class="sc">$</span>GA <span class="ot">&lt;-</span> df_reg<span class="sc">$</span>GA</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Old is gold...and grumpy?</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#faceted</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> df_stan <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Age, CrdY, <span class="st">`</span><span class="at">Gls...9</span><span class="st">`</span>, GA) <span class="sc">%&gt;%</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Age, <span class="at">names_to =</span> <span class="st">"Variable"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>custom_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"CrdY"</span> <span class="ot">=</span> <span class="st">"Yellow Cards"</span>, <span class="st">"Gls...9"</span> <span class="ot">=</span> <span class="st">"Goals Scored"</span>, <span class="st">"GA"</span> <span class="ot">=</span> <span class="st">"Goals Conceded"</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the lines for each variable</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_plot, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> Value, <span class="at">color =</span> Variable)) <span class="sc">+</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Variables vs Age"</span>, <span class="at">x =</span> <span class="st">"Age (in Years)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"CrdY"</span> <span class="ot">=</span> <span class="st">"orange"</span>, <span class="st">"Gls...9"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"GA"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Variable, <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">labeller =</span> <span class="fu">labeller</span>(<span class="at">Variable =</span> custom_labels)) <span class="sc">+</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>Football is often considered a game of the young, owing to its ever increasing pace. This physically demanding nature of the game has led to players retiring into their early 30s, and new players being introduced in their teens. This trend has resulted in a decarese in the overall squad age for teams across the years.</p>
+<p>The graph aims to examine the relationship between squad age, fouls committed (measured by yellow cards), and goals conceded. Two key inquiries guide this analysis: a. Do older squads tend to commit more fouls due to potential challenges in keeping up with younger opponents? b. Does committing fouls serve as an effective strategy in preventing goals or create favorable defensive opportunities through resulting free kicks? Observations and Findings 1. Fouls Committed by Age: Contrary to expectations, there's no substantial evidence suggesting that older squads (&gt;28 years) commit more fouls indicated by yellow cards. Even younger squads, exemplified by Arsenal, exhibit a propensity for committing fouls. Age does not significantly correlate with the number of fouls committed. 2. Effectiveness of Fouls in Preventing Goals: Fouls, primarily intended to impede opponents and prevent clear goal-scoring chances, do not seem to significantly impact goals conceded. There's no apparent relationship between committing more fouls and conceding fewer goals. The data does not support the idea that fouls effectively prevent goals.</p>
+<p>Conclusion: The analysis indicates a lack of strong correlation between squad age, fouls committed, and goals conceded in football. Older squads do not exhibit a tendency to commit more fouls, nor do higher foul counts lead to fewer goals conceded. Overall, the findings suggest that age and fouls committed, as well as fouls committed and goals conceded, are largely uncorrelated factors in determining team performance in football. This analysis highlights the nuanced nature of football dynamics, suggesting that while age and fouls are measurable metrics, their direct impact on match outcomes appears inconclusive.</p>
+</section>
+<section id="great-expectations-horizontal-bar-plot" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="great-expectations-horizontal-bar-plot"><span class="header-section-number">3.10</span> “Great Expectations” (Horizontal Bar Plot)</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>icon_xg <span class="ot">&lt;-</span> <span class="st">"data/fot1.png"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>icon_act <span class="ot">&lt;-</span> <span class="st">"data/fot2.png"</span><span class="co"># Update with the correct path</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a plot with horizontal bars for expected and actual goals</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_stan, <span class="fu">aes</span>(<span class="at">y =</span> df_stan<span class="sc">$</span>Squad)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> df_stan<span class="sc">$</span>xG...<span class="dv">17</span>, <span class="at">fill =</span> <span class="st">"Expected Goals"</span>), <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> df_stan<span class="sc">$</span>Gls...<span class="dv">9</span>, <span class="at">fill =</span> <span class="st">"Actual Goals"</span>), <span class="at">stat =</span> <span class="st">"identity"</span>,  <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Expected vs Actual Goals"</span>, <span class="at">x =</span> <span class="st">"Goals"</span>, <span class="at">y =</span> <span class="st">"Teams"</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"darkgreen"</span>),</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>))<span class="sc">+</span> <span class="co"># Change the background color to green</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  ggimage<span class="sc">::</span><span class="fu">geom_image</span>(<span class="fu">aes</span>(<span class="at">x =</span> df_stan<span class="sc">$</span>xG...<span class="dv">17</span> <span class="sc">+</span> <span class="fl">0.2</span>, <span class="at">image =</span> icon_xg), <span class="at">size =</span> <span class="fl">0.05</span>, <span class="at">by =</span> <span class="st">"height"</span>) <span class="sc">+</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  ggimage<span class="sc">::</span><span class="fu">geom_image</span>(<span class="fu">aes</span>(<span class="at">x =</span> df_stan<span class="sc">$</span>Gls...<span class="dv">9</span> <span class="sc">-</span> <span class="fl">0.2</span>, <span class="at">image =</span> icon_act), <span class="at">size =</span> <span class="fl">0.06</span>, <span class="at">by =</span> <span class="st">"height"</span>)<span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Expected Goals"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>, <span class="st">"Actual Goals"</span> <span class="ot">=</span> <span class="st">"orange"</span>),</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">name =</span> <span class="st">"Goals"</span>,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Expected Goals"</span>, <span class="st">"Actual Goals"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="results_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Comments:</em></p>
+<p>"xG," which stands for "Expected Goals," represents a statistical measure used in football (soccer) to assess the probability of goal-scoring opportunities during a match. It factors in various elements like shot location, type, and assist type to determine the likelihood of a shot resulting in a goal. Interpretation: The visualization showcases yellow and blue bar charts along the same axis, illustrating the relationship between expected and actual goals scored. - Yellow Bar (Terminating with Yellow Ball):** Represents actual goals scored during matches. When the yellow ball extends beyond the yellow bar, it indicates that the team scored more goals than statistically anticipated. This suggests their ability to convert chances that weren’t in their favor statistically.</p>
+<ul>
+<li>Blue Bar (Terminating with Red Ball): Represents Expected Goals (xG). When a blue line is visible, it signifies that the actual goals scored were fewer than the expected goals (xG). This indicates the team's inability to capitalize on the goal-scoring opportunities they created. Observations:</li>
+<li>Many teams have outperformed statistically predicted goal-scoring outcomes, as highlighted by the significant distance between the yellow and blue balls. Notable standouts include Manchester City and Arsenal.</li>
+<li>Conversely, teams like Everton, Chelsea, and Wolves fell short of converting their chances into goals, evident from the smaller distance or overlap between the yellow and red balls.</li>
+<li>This analysis emphasizes that top-performing teams not only create goal-scoring opportunities but also capitalize on them, scoring even from unlikely scenarios. The analysis of Expected Goals (xG) versus actual goals scored reveals how teams convert scoring opportunities. It shows that some teams consistently outperform their expected goals, displaying a knack for efficient goal conversion. Others struggle to match their xG, pointing to inefficiencies in finishing or decision-making. This analysis highlights the importance of efficient goal conversion and its impact on match outcomes in football.</li>
+</ul>
+<p><strong>Results Summary</strong></p>
+<p>Throughout the creation of our 10 visualizations we identified numerous keys to becoming a successful soccer team in the premier league. From avoiding penalties to choosing the right position on the field to shoot, there are many insights from the data that can be utilized by coaches, players, and fans to better assess a team’s/player’s performance. We will discuss some of the most prominent discoveries that we made through our study:</p>
+<p>Clearly, having both a strong offensive and defensive team is very important, but based upon our correlation between goals scored/conceded and final league points, we found that offense showed a stronger correlation with winning.</p>
+<p>Penalties have an immediate negative impact on teams, but are these penalties significant enough to result in a better overall record for the season? According to our results, they absolutely do. We observe an obvious relationship between winning teams and fewer penalties and losing teams and more penalties.</p>
+<p>Nobody likes a ball hog, but in professional level soccer does passing and sharing the ball actually help a team win? Based upon our findings, passing the ball and sharing it with your teammates actually is an attribute of a winning team.</p>
+<p>Can an exceptional goalie lead a team to victory? Measured by clean sheets (games where goalie allows no goals from the opponent) we definitely see a connection with exceptional goalies and winning teams.</p>
+<p>The goalie position is essential and serves as the final line of defense against the opponent, but is a team’s defensive ability measured solely by the goalie? Certainly not, in fact, we found that the best teams goalies had to do the least amount of work and had to block fewer shots at the goal (likely due to the fact that good teams have strong defensive players who don’t let the opponent shoot at the goalie in the first place).</p>
+<p>Closer shots are easier to make… right? Well, according to our analysis we found that longer shots actually yielded higher accuracy ratings.</p>
+<p>Does playing aggressively lead to more success? We explored how teams behaved with the ball in the attacking third area of the field. We saw that teams who were aggressive and took more shots rather than passes in the attacking third area were generally teams with more winning records. So shoot your shot when in range!</p>
+<p>Patience is key, slow and steady wins the race. Comparing the completion of short, medium and long distance passes; it is clear that long passes are incredibly risky and show a very low completion rate. Thus, it is better to stick with short and medium distance passes to avoid losing the ball to the opponent.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -416,7 +1029,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/yash-dange/Moneyball/edit/main/results.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/yash-dange/Moneyball/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
