@@ -13,7 +13,7 @@ This project aims to analyze the Premier League data to determine the key factor
   - **Tableau** for initial data exploration
   - **R (R Studio)** - Primary coding environment
   - **GGplot2, D3.js** for visualization plots
-  - **Scikit-learn** for machine learning and model evaluation
+
 - **Quarto** for report generation and visualization embedding.
 
 ## Data Description
