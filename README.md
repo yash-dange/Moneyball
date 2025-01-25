@@ -4,13 +4,15 @@
 This project aims to analyze the Premier League data to determine the key factors that contribute to a team's success. Through data analysis, we uncover trends and correlations between team attributes and performance outcomes. By examining team statistics, player roles, and financial investments, we attempt to identify actionable insights that could help teams improve their performance.
 
 ## Key Skills and Technologies
+
 - **Data Analysis & Preprocessing:** Analyzed large datasets to identify trends and patterns.
 - **Statistical Analysis:** Utilized various statistical techniques to uncover significant correlations between team performance and key attributes.
 - **Visualization:** Created interactive visualizations to present insights in an engaging manner.
-- **Machine Learning:** Implemented predictive models to estimate outcomes based on historical data.
-- **Python & Libraries:** 
-  - **Pandas** for data manipulation
-  - **Matplotlib & Seaborn** for data visualization
+  
+- **Tools:**   
+  - **Tableau** for initial data exploration
+  - **R (R Studio)** - Primary coding environment
+  - **GGplot2, D3.js** for visualization plots
   - **Scikit-learn** for machine learning and model evaluation
 - **Quarto** for report generation and visualization embedding.
 
