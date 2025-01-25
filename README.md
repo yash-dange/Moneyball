@@ -32,9 +32,3 @@ The dataset includes multiple variables related to team performance, including:
 ## Conclusion
 This analysis provides a deeper understanding of the key drivers behind successful teams in the Premier League. By leveraging data, clubs can refine their strategies to enhance team performance.
 
-## Getting Started
-Clone the repository and install dependencies to start exploring the data:
-```bash
-git clone https://github.com/Yash-Dange/Moneyball
-cd Moneyball
-pip install -r requirements.txt
